@@ -5,11 +5,12 @@ import org.openqa.selenium.chrome.ChromeDriver;
 
 public class C02_DriverMethods {
     public static void main(String[] args) {
-        System.setProperty("webdriver.chrome.driver","src/resources/drivers/chromedriver.exe");
+        System.setProperty("chrome.driver","src/resources/drivers/chromedriver.exe");
         WebDriver driver = new ChromeDriver();
         driver.get("https://amazon.com");
         //getTitle() Sayfa başlığını verir
         System.out.println("Amazon Actual Title : "+driver.getTitle());
+
         System.out.println("Amazon Actual Url : "+driver.getCurrentUrl());
         String amazonWindowHanle = driver.getWindowHandle();
         System.out.println("Amazon Window Handle Değeri : "+amazonWindowHanle);
