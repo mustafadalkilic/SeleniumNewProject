@@ -1,6 +1,7 @@
 package day03_Locators;
 
 import org.openqa.selenium.By;
+import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
@@ -52,9 +53,25 @@ public class C03_findelements {
         driver.close();
 
         //Amazon sayfasına gidiniz
+        driver.get("https://www.amazon.com");
+
         //iphone aratınız
+        driver.findElement(By.id("twotabsearchtextbox")).sendKeys("ipone", Keys.ENTER);
+
         //çıkan sonuç yazısını konsola yazdırınız
+
+        driver.findElements(By.cssSelector(".s-result-item h2 a span")).forEach(element ->
+                System.out.println(element.getText()));
+
+
         //çıkan ürünlerden ilk 5 tanesine tıklayıp sayfa başlıklarını yazdırınız
+
+        for (int i = 1; i <= 5; i++) {
+            WebElement productLink = driver.findElement(By.cssSelector(".s-result-item:nth-of-type(" + i + ") h2 a"));
+            productLink.click();
+            System.out.println(driver.getTitle());
+            driver.navigate().back();
+        }
 
 
 
