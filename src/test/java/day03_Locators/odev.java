@@ -31,12 +31,12 @@ public class odev {
 
         for (int i = 0; i < 5 ; i++) {
             List<WebElement> urunler = driver.findElements(By.xpath("//*[@class='a-section aok-relative s-image-fixed-height']"));
-            Thread.sleep(2000);
+
             urunler.get(i).click();
-            Thread.sleep(2000);
+
             System.out.println((i+1)+". Urun basligi : "+driver.getTitle());
             driver.navigate().back();
-            Thread.sleep(2000);
+
         }
         driver.close();
 
